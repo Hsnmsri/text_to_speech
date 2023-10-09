@@ -1,10 +1,31 @@
 <footer class="row g-0 col-12 border-top px-3 align-items-center">
   <div class="col row g-0 pe-3">
-    <input type="text" class="form-control" placeholder="type to speech...">
+    <input type="text" class="form-control" placeholder="type to speech..." [hidden]="!displayMessageInput"
+      (keypress)="setTypingMode($event)" [value]="MessageInput">
+    <!-- Select language -->
+    <select class="form-select" [hidden]="!displayVoiceSelector">
+      <option value="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellendus repellat dicta voluptates dolorem,
+        incidunt sit praesentium ex sunt, quos eveniet quaerat, accusamus provident explicabo laborum repudiandae fugit
+        facere reiciendis.
+      </option>
+      <option value="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellendus repellat dicta voluptates dolorem,
+        incidunt sit praesentium ex sunt, quos eveniet quaerat, accusamus provident explicabo laborum repudiandae fugit
+        facere reiciendis.
+      </option>
+      <option value="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellendus repellat dicta voluptates dolorem,
+        incidunt sit praesentium ex sunt, quos eveniet quaerat, accusamus provident explicabo laborum repudiandae fugit
+        facere reiciendis.
+      </option>
+    </select>
   </div>
   <div class="col-auto">
     <button class="btn rounded-0">
-      <i class="bi bi-arrow-up"></i>
+      <i class="bi bi-caret-right" [hidden]="!displayBackButton" (click)="setDefaultMode()"></i>
+      <i class="bi bi-arrow-up" [hidden]="!displaySendMessageButton" (click)="setDefaultMode()"></i>
+      <i class="bi bi-mic" [hidden]="!displayVoiceChangerButton" (click)="setVoiceChangerMode()"></i>
     </button>
   </div>
 </footer>
